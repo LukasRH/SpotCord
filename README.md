@@ -24,7 +24,7 @@ If you have suggestions, bugs or other issues specific to this library, file the
 ## Find me on Discord ![][tag-discord]
 > LukeRH#0001
 
-https://discord.gg/PyKMjq8
+[![InviteBanner](https://user-images.githubusercontent.com/16747705/60059041-111b6600-96eb-11e9-9c26-6c0e8e9b9164.png)](https://discord.gg/PyKMjq8)
 
 <!-- Markdown link & img dfn's -->
 [tag-lisence]: https://img.shields.io/github/license/LukasRH/SpotCord.svg?style=flat-square

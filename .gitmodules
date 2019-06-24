@@ -1,0 +1,3 @@
+[submodule "spotipy"]
+	path = spotipy
+	url = git@github.com:LukasRH/spotipy.git

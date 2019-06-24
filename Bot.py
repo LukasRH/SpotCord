@@ -5,7 +5,7 @@
 import discord
 from Spotify import Spotify
 from discord.ext import commands
-from Auth import BotAuth, SpotifyAuth
+from Auth import BotAuth
 
 __author__ = "Lukas Rønsholt"
 __copyright__ = ""
@@ -19,7 +19,7 @@ __status__ = "Development"
 
 class SpotCord(commands.bot):
     def __init__(self, **options):
-        super().__init__(**options)
+        super().__init__(**options, command_prefix=BotAuth.prefix)
 
     def run(self):
         super().run(BotAuth.token)
@@ -30,5 +30,5 @@ class SpotCord(commands.bot):
             f"Discord.py version: {discord.__version__}\n{'#' * 40}")
         print('\nLogged in as:\n{0} (ID: {0.id})'.format(self.user))
 
-        self.add_cog(Spotify)
+        self.add_cog(Spotify(self))
 

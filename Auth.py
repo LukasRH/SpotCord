@@ -23,9 +23,11 @@ class BotAuth(object):
 class SpotifyAuth(object):
     try:
         scope = "playlist-modify-public user-modify-playback-state user-read-playback-state"
-        client_id = os.environ['BOT_TOKEN']
-        client_secret = os.environ['BOT_TOKEN']
+        user_id = os.environ['USER_ID']
+        client_id = os.environ['CLIENT_ID']
+        client_secret = os.environ['CLIENT_SECRET']
         redirect_uri = "http://localhost/"
+        stdout = os.environ['CHANNEL_ID']
     except KeyError as e:
         print(f"Missing environment variable {e.args[0]}")
         sys.exit(0)

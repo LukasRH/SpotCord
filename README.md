@@ -1,10 +1,10 @@
 # SpotCord - Spotify listening party in Discord
 
-> A minimal Discord Bot for controlling an spotify instance. The host connects his spotify account to the bot. Others can then listen along and use the bot to queue up songs. 
-
-![https://github.com/LukasRH/SpotCord/blob/master/LICENSE][tag-lisence] 
+![][tag-lisence]
 ![][tag-issues]
 ![][tag-pull]
+
+> A minimal Discord Bot for controlling an spotify instance. The host connects his spotify account to the bot. Others can then listen along and use the bot to queue up songs. 
 
 ## Discord Hackweek
 This bot was made during Discord's hackweek as my submission. It was created for as often when listening along with people on spotify you might want to share a song or just collaboratively with your friends choose what to listen too.
@@ -21,11 +21,15 @@ SpotCord allows people to queue up songs on the host's spotify, removing the haz
 ## Reporting Issues
 If you have suggestions, bugs or other issues specific to this library, file them [here](https://github.com/LukasRH/SpotCord/issues). Or just send me a pull request.
 
-## Find me on Discord
+## Find me on Discord ![][tag-discord]
+> LukeRH#0001
+
+https://discord.gg/PyKMjq8
 
 <!-- Markdown link & img dfn's -->
 [tag-lisence]: https://img.shields.io/github/license/LukasRH/SpotCord.svg?style=flat-square
 [tag-issues]: https://img.shields.io/github/issues/LukasRH/SpotCord.svg?style=flat-square
 [tag-pull]: https://img.shields.io/github/issues-pr/LukasRH/spotcord.svg?style=flat-square
+[tag-discord]: https://img.shields.io/discord/580822439773208581.svg
 
 

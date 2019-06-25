@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """ Discord bot cog for connecting to and controlling a spotify instance """
-
+import asyncio
 import os
 import sys
 from time import sleep
@@ -25,6 +25,7 @@ class Spotify(commands.Cog):
         self.bot = bot
         self.token = self.get_spotify_token(SpotifyAuth.client_id)
         self.stdout = SpotifyAuth.stdout
+        self.autoplay = None
 
         self.discord_queue = deque()
         self.spotify_queue = deque()
@@ -33,6 +34,7 @@ class Spotify(commands.Cog):
             self.sp = spotipy.Spotify(auth=self.token)
             self._get_playlist_running()
             self.sp.trace = False
+            self.autoplay = self.bot.loop.create_task(self._autoplay())
         else:
             print("Could not obtain a spotify token!")
             sys.exit(0)
@@ -98,8 +100,7 @@ class Spotify(commands.Cog):
         self.sp.start_playback(uris=[uri])
         sleep(0.1)
         if reset:
-            pass
-            # self.reset_autoplay() TODO make autoplay
+            self.reset_autoplay()
         return self.sp.current_user_playing_track()
 
     def play_next_song(self, reset=True):
@@ -138,6 +139,27 @@ class Spotify(commands.Cog):
         # TODO sort tracks by given parem, default no sort
 
         return tracks
+
+    async def _autoplay(self):
+        while True:
+            song = self.sp.current_user_playing_track()
+            time_left_ms = song['item']['duration_ms'] - song['progress_ms']
+            await asyncio.sleep(time_left_ms/1000)
+            song = self.play_next_song(reset=False)
+            channel = self.bot.get_channel(self.stdout)
+            if song is not None and channel is not None:
+                await self.bot.send_message(channel, embed=self.create_song_embed(song, "Now Playing"))
+            elif song is None and channel is not None:
+                await self.bot.send_message(channel, embed=Embed(title="No Song playing", color=Color.red()))
+
+    def reset_autoplay(self):
+        if self.autoplay is not None:
+            self.autoplay.cancel()
+        self.autoplay = self.bot.loop.create_task(self._autoplay())
+
+    def stop_autoplay(self):
+        self.autoplay.cancel()
+        self.autoplay = None
 
     @commands.command(name="user")
     async def _current_user(self, ctx):
@@ -185,7 +207,7 @@ class Spotify(commands.Cog):
     @commands.command(name="pause", pass_context=True)
     async def _pause_playback(self, ctx):
         self.sp.pause_playback()
-        # self.stop_autoplay() TODO AUTOPLAY
+        self.stop_autoplay()
         await ctx.send(embed=Embed(title="Pausing playback"))
 
     @commands.command(name="next", pass_context=True)

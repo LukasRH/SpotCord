@@ -3,6 +3,7 @@
 ![][tag-lisence]
 ![][tag-issues]
 ![][tag-pull]
+![][tag-status]
 
 > A minimal Discord Bot for controlling an spotify instance. The host connects his spotify account to the bot. Others can then listen along and use the bot to queue up songs. 
 
@@ -121,6 +122,7 @@ If you have suggestions, bugs or other issues specific to this library, file the
 [tag-lisence]: https://img.shields.io/github/license/LukasRH/SpotCord.svg?style=flat-square
 [tag-issues]: https://img.shields.io/github/issues/LukasRH/SpotCord.svg?style=flat-square
 [tag-pull]: https://img.shields.io/github/issues-pr/LukasRH/spotcord.svg?style=flat-square
-[tag-discord]: https://img.shields.io/discord/580822439773208581.svg
+[tag-discord]: https://img.shields.io/discord/580822439773208581.svg?style=flat-square
+[tag-status]: https://img.shields.io/badge/Status-Under%20Development-yellow.svg?style=flat-square
 
 

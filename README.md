@@ -49,7 +49,13 @@ Download or clone the code using git:
 ```text
 git clone https://github.com/LukasRH/SpotCord.git
 ```
-Then `cd` into the directory using the terminal and start the build:
+Then `cd` into the directory using the terminal 
+Now you must download the submodules too, which is done with the following two commands:
+```text
+git submodule init
+git submodule update
+```
+then start the build:
 ```text
 docker build --rm -t spotcord
 ```

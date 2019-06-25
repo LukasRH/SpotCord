@@ -89,6 +89,9 @@ six
 ## Reporting Issues
 If you have suggestions, bugs or other issues specific to this library, file them [here](https://github.com/LukasRH/SpotCord/issues). Or just send me a pull request.
 
+## Screenshots
+![githubimages](https://user-images.githubusercontent.com/16747705/60067992-2dc89580-970d-11e9-8e89-d89e22164382.png)
+
 ## Find me on Discord ![][tag-discord]
 > LukeRH#0001
 

@@ -8,10 +8,13 @@
 
 ![Github_social](https://user-images.githubusercontent.com/16747705/60066065-500ae500-9706-11e9-82e0-db371339259b.png)
 
-## Discord Hackweek <img width="72" alt="hack_lockups_black" src="https://user-images.githubusercontent.com/16747705/60066236-c90a3c80-9706-11e9-8bba-3917cdbdda50.png">
-This bot was made during Discord's hackweek as my submission. It was created for as often when listening along with people on spotify you might want to share a song or just collaboratively with your friends choose what to listen too.
-
+## Description
 SpotCord allows people to queue up songs on the host's spotify, removing the hazel from the host, which can just lay back and enjoy the music. 
+
+Spotcord is not meant to be used by multiply servers, as there can only be one host connected to it. This is due to the way the that the spotify API wrapper is written, it is however not imposible that there will come support for serveral host connected to it on a later point.
+
+## Discord Hackweek <img width="72" alt="hack_lockups_black" src="https://user-images.githubusercontent.com/16747705/60066236-c90a3c80-9706-11e9-8bba-3917cdbdda50.png">
+This bot was made during Discord's hackweek as my submission. It was created for when listening along with people on spotify you might want to share a song or just collaboratively with your friends choose what to listen too.
 
 ## Installation
 There are two ways of running SpotCord, you can run it locally or with docker.

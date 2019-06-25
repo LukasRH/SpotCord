@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  bot:
+    build:
+      context: .
+    environment:
+      - BOT_TOKEN=bot token here
+      - BOT_PREFIX=.
+      - CLIENT_ID=spotify id here
+      - CLIENT_SECRET=spotify secret here
+      - CHANNEL_ID=discord channel id here
+      - USER_ID=spotify username here

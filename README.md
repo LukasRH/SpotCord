@@ -26,9 +26,6 @@ The process of creating a Discord bot is described a lot of places, so i will ju
 Next thing you are gonna need an Spotify app, and spotify them self have been so kind to describe how to do that [here](https://developer.spotify.com/documentation/general/guides/app-settings/).
 They are gonna ask you for a website and a redirect URI, just what ever for the website or nothing at all, and for the URI use `http://localhost/`. Later we are gonna use the Client ID and Secret, so write that down.
 
-
-### Local Installation
-To run the bot it requires you to have Python 3.6+ installed.
 Clone the code using git:
 ```text
 git clone https://github.com/LukasRH/SpotCord.git
@@ -41,27 +38,6 @@ Now you must download the submodules too, which is done with the following two c
 ```text
 git submodule init
 git submodule update
-```
-
-### Docker
-The docker image for SpotCord is hosted on DockerHub, and therefor it can be deployed with only a few commands and there are no need to download or clone the code.
-```text
-docker pull lukerh/spotcord
-```
-If you want to build the image yourself you are free to do so too, by downloading or cloning the code and running the following commands.
-Download or clone the code using git:
-```text
-git clone https://github.com/LukasRH/SpotCord.git
-```
-Then `cd` into the directory using the terminal 
-Now you must download the submodules too, which is done with the following two commands:
-```text
-git submodule init
-git submodule update
-```
-then start the build:
-```text
-docker build --rm -t spotcord
 ```
 
 ## Starting the bot
@@ -91,10 +67,10 @@ SpotCord can now by started my running it in python.
 python main.py
 ````
 ### Using Docker
-The bot can be started with the `docker run` command and by specifying the environment variables.
-```text
-docker run --restart=on-failure --rm -e "BOT_TOKEN=YourToken" -e "BOT_PREFIX=BotPrefix" -e "USER_ID=SpotifyUserName" -e "CLIENT_ID=SpotifyID" -e "CLIENT_SECRET=SpotifySecret" -e "CHANNEL_ID=DiscordChannelID" spotcord
-```
+As of right now you will have to run SpotCord on your machine at least once before building the docker image and deploying.
+This is to get the cached spotify token into the docker image, and the current process is not very supportive of docker.
+Therefor run it once, then build the image, and deploy with docker-compose. Hopefully in the future a better way of obtaining the token
+can be implemented, and SpotCord can then completely be run with docker. 
 
 ### Logging in to Spotify using the bot
 The first time Spotcord starts it will ask you to sign into Sporify. It will open your default web browser, and if not it will show the link you have to go to.

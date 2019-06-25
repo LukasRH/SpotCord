@@ -42,12 +42,14 @@ class Spotify(commands.Cog):
         try:
             return util.prompt_for_user_token(username, scope=SpotifyAuth.scope, client_id=SpotifyAuth.client_id,
                                               client_secret=SpotifyAuth.client_secret,
-                                              redirect_uri=SpotifyAuth.redirect_uri)
+                                              redirect_uri=SpotifyAuth.redirect_uri,
+                                              cache_path=os.path.join(os.getcwd(), 'cache', f'{SpotifyAuth.user_id}'))
         except AttributeError:
             os.remove(f".cache-{username}")
             return util.prompt_for_user_token(username, scope=SpotifyAuth.scope, client_id=SpotifyAuth.client_id,
                                               client_secret=SpotifyAuth.client_secret,
-                                              redirect_uri=SpotifyAuth.redirect_uri)
+                                              redirect_uri=SpotifyAuth.redirect_uri,
+                                              cache_path=os.path.join(os.getcwd(), 'cache', f'{SpotifyAuth.user_id}'))
 
     @staticmethod
     def create_song_embed(song, title="Track Details"):
@@ -148,7 +150,10 @@ class Spotify(commands.Cog):
                     color=Color.green(),
                     url=user['external_urls']['spotify'])
 
-        msg.set_thumbnail(url=user['images'][0]['url'])
+        try:
+            msg.set_thumbnail(url=user['images'][0]['url'])
+        except IndexError:
+            pass
 
         await ctx.send(embed=msg)
 

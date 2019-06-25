@@ -1,23 +1,20 @@
 #!/usr/bin/env python
 
-""" TODO make explanation here """
+""" https://discordapp.com/oauth2/authorize?client_id=581970259989233685&scope=bot&permissions=93184 """
 
 import discord
+import sys
 from Spotify import Spotify
 from discord.ext import commands
 from Auth import BotAuth
 
 __author__ = "Lukas Rønsholt"
-__copyright__ = ""
-__credits__ = []
-__license__ = "?"
+__license__ = "MIT"
 __version__ = "0.0.1"
-__maintainer__ = "Lukas Rønsholt"
-__email__ = "lukasronsholt@gmail.com"
 __status__ = "Development"
 
 
-class SpotCord(commands.bot):
+class SpotCord(commands.Bot):
     def __init__(self, **options):
         super().__init__(**options, command_prefix=BotAuth.prefix)
 

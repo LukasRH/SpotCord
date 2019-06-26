@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-""" https://discordapp.com/oauth2/authorize?client_id=581970259989233685&scope=bot&permissions=93184 """
-
 import discord
 import sys
 from Spotify import Spotify

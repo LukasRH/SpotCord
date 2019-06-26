@@ -35,6 +35,8 @@ Then `cd` into the directory using the terminal and install the requirements
 pip install -r requirements.txt
 ````
 Now you must download the submodules too, which is done with the following two commands:
+> It looks like for this to work, you have to use a ssh key. If you already have that, great you are awesome. If not run: ``git clone https://github.com/LukasRH/spotipy.git``
+
 ```text
 git submodule init
 git submodule update
